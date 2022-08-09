@@ -3,7 +3,7 @@
 ## back .config 내용
 ```text
 HOST="localhost"
-DATABASE="blog"
+DATABASE="instagram"
 DATABASE_TYPE="mysql+pymysql"
 DBUSER="root"
 PASSWORD="root"
