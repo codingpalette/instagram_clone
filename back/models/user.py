@@ -10,6 +10,7 @@ class User(Base):
     name = Column(String(30), nullable=False)
     nickname = Column(String(30), unique=True, index=True, nullable=False)
     password = Column(String(255), nullable=False)
+    birthday = Column(DateTime(6))
     refresh_token = Column(String(255))
     created_at = Column(DateTime(6), default=func.utc_timestamp(), nullable=False)
     updated_at = Column(DateTime(6), default=func.utc_timestamp(), onupdate=func.utc_timestamp(), nullable=False)
