@@ -6,6 +6,10 @@ class UserBase(BaseModel):
     pass
 
 
+class UserIdGet(UserBase):
+    id: str
+
+
 class UserEmailGet(UserBase):
     email: str
 
@@ -20,3 +24,8 @@ class UserSet(UserBase):
     nickname: str
     password: str
     birthday: str
+
+
+class UserLogin(UserBase):
+    email: str
+    password: str
