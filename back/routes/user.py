@@ -47,8 +47,17 @@ async def user_check(request: Request, db: Session = Depends(get_db)):
             # 토큰 만들기
             access_token = token.create_token('access_token', refresh_token_info)
 
+    # 엑세스 토큰이 인증완료 되었다면 토큰 갱신을 해준다.
     decode = jwt.decode(access_token, key, algorithms=['HS256'])
+    jwt.decode(refresh_token, key, algorithms=['HS256'])
+    user_info = DotMap()
+    user_info.id = decode["id"]
+    user_info.name = decode["name"]
+    user_info.email = decode["email"]
+    user_info.nickname = decode["nickname"]
+    access_token = token.create_token('access_token', user_info)
     access_token_time = datetime.datetime.utcnow() + datetime.timedelta(days=1)
+
     content = decode
     response = JSONResponse(content=content)
     response.set_cookie(
@@ -138,7 +147,6 @@ async def user_login(request: Request, post_data: schemas.UserLogin, db: Session
         raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그인에 실패했습니다."})
 
 
-
 # 로그아웃
 @router.post('/logout', summary="로그아웃")
 async def log_out(request: Request, db: Session = Depends(get_db)):
@@ -161,4 +169,3 @@ async def log_out(request: Request, db: Session = Depends(get_db)):
         return response
     else:
         raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그아웃 실패"})
-
