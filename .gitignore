@@ -26,3 +26,5 @@ back/public
 back/.config
 
 .env
+
+.DS_Store
