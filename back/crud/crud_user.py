@@ -9,7 +9,6 @@ def user_id_get(db: Session, id: schemas.UserIdGet) -> User:
     try:
         return db.query(User).filter(User.id == id).first()
     except Exception as e:
-        # print(e)
         raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
 
 
@@ -70,5 +69,19 @@ async def token_update(db: Session, post_data: schemas.UserIdGet, refresh_token:
 async def user_refresh_token_get(db: Session, refresh_token: str) -> User:
     try:
         return db.query(User).filter(User.refresh_token == refresh_token).first()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
+
+
+# 유저 로그아웃
+async def log_out(db: Session, id: int) -> User:
+    try:
+        user_info = user_id_get(db, id)
+        user_info.refresh_token = None
+        db.commit()
+        db.refresh(user_info)
+
+        return user_info
+
     except Exception as e:
         raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})

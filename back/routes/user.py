@@ -136,3 +136,29 @@ async def user_login(request: Request, post_data: schemas.UserLogin, db: Session
         return response
     else:
         raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그인에 실패했습니다."})
+
+
+
+# 로그아웃
+@router.post('/logout', summary="로그아웃")
+async def log_out(request: Request, db: Session = Depends(get_db)):
+    """
+    :param request: \n
+    :param db: \n
+    :return: \n
+    """
+    # 로그인 여부 확인
+    login_info = await func.login_info_get(request)
+    if not login_info:
+        raise HTTPException(status_code=401, detail={"result": "fail", "message": "로그인 후 이용해 주세요."})
+
+    log_out_info = await crud_user.log_out(db, login_info["id"])
+    if log_out_info:
+        content = {"result": "success", "message": "로그아웃 성공"}
+        response = JSONResponse(content=content)
+        response.delete_cookie("access_token")
+        response.delete_cookie("refresh_token")
+        return response
+    else:
+        raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그아웃 실패"})
+
