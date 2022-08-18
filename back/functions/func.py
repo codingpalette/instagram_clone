@@ -9,7 +9,7 @@ async def login_info_get(request):
     if not access_token:
         return False
 
-    login_info = await token.access_token_check(access_token)
+    login_info = await token.token_check(access_token)
 
     if not login_info:
         return False

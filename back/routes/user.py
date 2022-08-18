@@ -9,7 +9,8 @@ from config import conf
 import schemas
 import bcrypt
 import datetime
-
+import jwt
+from dotmap import DotMap
 
 config = conf()
 
@@ -17,14 +18,52 @@ router = APIRouter(
     prefix="/user",
 )
 
-@router.get('/test')
-async def test():
-    return True
+
+# 유저 체크
+@router.get('/check', summary="유저 체크")
+async def user_check(request: Request, db: Session = Depends(get_db)):
+    cookies = request.cookies
+    access_token = cookies.get("access_token")
+    refresh_token = cookies.get("refresh_token")
+    key = config['TOKEN_KEY']
+
+    if not access_token or not refresh_token:
+        return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패"})
+
+    access_token_check = await token.token_check(access_token)
+
+    # 엑세트 토큰이 False 일 경우 리프레쉬 토큰으로 유저를 가지고 온다.
+    if not access_token_check:
+        # 리프레쉬 토큰 기간 검사를 한다.
+        refresh_token_check = await token.token_check(refresh_token)
+        if not refresh_token_check:
+            return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패2"})
+
+        refresh_token_info = await crud_user.user_refresh_token_get(db, refresh_token)
+        # 리프레쉬 토큰으로 조회후 없으면 인증실패 처리 한다.
+        if not refresh_token_info:
+            return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패1"})
+        else:
+            # 토큰 만들기
+            access_token = token.create_token('access_token', refresh_token_info)
+
+    decode = jwt.decode(access_token, key, algorithms=['HS256'])
+    access_token_time = datetime.datetime.utcnow() + datetime.timedelta(days=1)
+    content = decode
+    response = JSONResponse(content=content)
+    response.set_cookie(
+        key="access_token",
+        value=access_token,
+        secure=True,
+        httponly=True,
+        expires=access_token_time.strftime("%a, %d %b %Y %H:%M:%S GMT"),
+    )
+    response.set_cookie(key="access_token", value=access_token)
+    return response
 
 
 @router.post('', summary="유저 생성")
 async def user_set(request: Request, post_data: schemas.UserSet, db: Session = Depends(get_db)):
-
     # 로그인 여부 확인
     login_info = await func.login_info_get(request)
     if login_info:
@@ -53,7 +92,6 @@ async def user_set(request: Request, post_data: schemas.UserSet, db: Session = D
 
 @router.post('/login', summary="유저 로그인")
 async def user_login(request: Request, post_data: schemas.UserLogin, db: Session = Depends(get_db)):
-
     # 로그인 여부 확인
     login_info = await func.login_info_get(request)
     if login_info:

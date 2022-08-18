@@ -2,6 +2,9 @@ from config import conf
 from dotmap import DotMap
 import datetime
 import jwt
+from sqlalchemy.orm import Session
+from connection import get_db
+from crud import crud_user
 
 config = conf()
 
@@ -25,8 +28,8 @@ def create_token(type, user_info):
     return jwt.encode(payload=payload, key=key, algorithm=alg)
 
 
-# 엑세스 토큰 체크
-async def access_token_check(access_token):
+# 토큰 체크
+async def token_check(access_token):
     try:
         key = config['TOKEN_KEY']
         decode = jwt.decode(access_token, key, algorithms=['HS256'])
