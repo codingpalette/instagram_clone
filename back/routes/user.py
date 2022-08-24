@@ -30,46 +30,23 @@ async def user_check(request: Request, db: Session = Depends(get_db)):
     if not access_token or not refresh_token:
         return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패"})
 
-    access_token_check = await token.token_check(access_token)
+    token_check = await token.token_check(access_token, refresh_token)
+    if not token_check:
+        return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패"})
 
-    # 엑세트 토큰이 False 일 경우 리프레쉬 토큰으로 유저를 가지고 온다.
-    if not access_token_check:
-        # 리프레쉬 토큰 기간 검사를 한다.
-        refresh_token_check = await token.token_check(refresh_token)
-        if not refresh_token_check:
-            return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패2"})
-
-        refresh_token_info = await crud_user.user_refresh_token_get(db, refresh_token)
-        # 리프레쉬 토큰으로 조회후 없으면 인증실패 처리 한다.
-        if not refresh_token_info:
-            return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패1"})
-        else:
-            # 토큰 만들기
-            access_token = token.create_token('access_token', refresh_token_info)
-
-    # 엑세스 토큰이 인증완료 되었다면 토큰 갱신을 해준다.
-    decode = jwt.decode(access_token, key, algorithms=['HS256'])
-    jwt.decode(refresh_token, key, algorithms=['HS256'])
-    user_info = DotMap()
-    user_info.id = decode["id"]
-    user_info.name = decode["name"]
-    user_info.email = decode["email"]
-    user_info.nickname = decode["nickname"]
-    access_token = token.create_token('access_token', user_info)
+    decode = jwt.decode(token_check, key, algorithms=['HS256'])
     access_token_time = datetime.datetime.utcnow() + datetime.timedelta(days=1)
-
     content = decode
     response = JSONResponse(content=content)
     response.set_cookie(
         key="access_token",
-        value=access_token,
+        value=token_check,
         secure=True,
         httponly=True,
         expires=access_token_time.strftime("%a, %d %b %Y %H:%M:%S GMT"),
     )
-    response.set_cookie(key="access_token", value=access_token)
+    response.set_cookie(key="access_token", value=token_check)
     return response
-
 
 @router.post('', summary="유저 생성")
 async def user_set(request: Request, post_data: schemas.UserSet, db: Session = Depends(get_db)):
