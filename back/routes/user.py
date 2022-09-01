@@ -9,7 +9,8 @@ from config import conf
 import schemas
 import bcrypt
 import datetime
-
+import jwt
+from dotmap import DotMap
 
 config = conf()
 
@@ -17,14 +18,38 @@ router = APIRouter(
     prefix="/user",
 )
 
-@router.get('/test')
-async def test():
-    return True
 
+# 유저 체크
+@router.get('/check', summary="유저 체크")
+async def user_check(request: Request, db: Session = Depends(get_db)):
+    cookies = request.cookies
+    access_token = cookies.get("access_token")
+    refresh_token = cookies.get("refresh_token")
+    key = config['TOKEN_KEY']
+
+    if not access_token or not refresh_token:
+        return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패"})
+
+    token_check = await token.token_check(access_token, refresh_token)
+    if not token_check:
+        return JSONResponse(status_code=401, content={"result": "fail", "message": "인증실패"})
+
+    decode = jwt.decode(token_check, key, algorithms=['HS256'])
+    access_token_time = datetime.datetime.utcnow() + datetime.timedelta(days=1)
+    content = decode
+    response = JSONResponse(content=content)
+    response.set_cookie(
+        key="access_token",
+        value=token_check,
+        secure=True,
+        httponly=True,
+        expires=access_token_time.strftime("%a, %d %b %Y %H:%M:%S GMT"),
+    )
+    response.set_cookie(key="access_token", value=token_check)
+    return response
 
 @router.post('', summary="유저 생성")
 async def user_set(request: Request, post_data: schemas.UserSet, db: Session = Depends(get_db)):
-
     # 로그인 여부 확인
     login_info = await func.login_info_get(request)
     if login_info:
@@ -53,7 +78,6 @@ async def user_set(request: Request, post_data: schemas.UserSet, db: Session = D
 
 @router.post('/login', summary="유저 로그인")
 async def user_login(request: Request, post_data: schemas.UserLogin, db: Session = Depends(get_db)):
-
     # 로그인 여부 확인
     login_info = await func.login_info_get(request)
     if login_info:
@@ -98,3 +122,27 @@ async def user_login(request: Request, post_data: schemas.UserLogin, db: Session
         return response
     else:
         raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그인에 실패했습니다."})
+
+
+# 로그아웃
+@router.post('/logout', summary="로그아웃")
+async def log_out(request: Request, db: Session = Depends(get_db)):
+    """
+    :param request: \n
+    :param db: \n
+    :return: \n
+    """
+    # 로그인 여부 확인
+    login_info = await func.login_info_get(request)
+    if not login_info:
+        raise HTTPException(status_code=401, detail={"result": "fail", "message": "로그인 후 이용해 주세요."})
+
+    log_out_info = await crud_user.log_out(db, login_info["id"])
+    if log_out_info:
+        content = {"result": "success", "message": "로그아웃 성공"}
+        response = JSONResponse(content=content)
+        response.delete_cookie("access_token")
+        response.delete_cookie("refresh_token")
+        return response
+    else:
+        raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그아웃 실패"})
