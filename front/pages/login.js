@@ -8,13 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const login = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+const Login = () => {
+  const {register, handleSubmit, watch, formState: { errors },} = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -41,7 +36,9 @@ const login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
+              register={{...register("email", { required: true })}}
             ></Input>
+            {errors.email && <span>This field is required</span>}
           </div>
           <div className="w-full mb-2">
             <Input
@@ -128,4 +125,4 @@ const login = () => {
     </div>
   );
 };
-export default login;
+export default Login;

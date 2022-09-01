@@ -1,7 +1,6 @@
-import React, { Children } from "react";
+import React from "react";
 
 const Input = ({
-  children,
   type,
   placeholder,
   className,
@@ -9,6 +8,7 @@ const Input = ({
   style,
   defaultValue,
   id,
+  register
 }) => {
   return (
     <>
@@ -20,9 +20,8 @@ const Input = ({
         style={style}
         defaultValue={defaultValue}
         id={id}
-      >
-        {children}
-      </input>
+        {...register}
+      />
     </>
   );
 };
