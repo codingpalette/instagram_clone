@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://developers.kakao.com/docs/latest/ko/reference/design-guide -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./디자인 가이드 _ Kakao Developers 문서_files/analytics.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47357815-9', 'auto');ga('send', 'pageview');</script><meta property="og:url" content="https://developers.kakao.com/"><meta property="og:title" content="Kakao Developers"><meta property="og:type" content="website"><meta property="og:image" content="http://k.kakaocdn.net/14/dn/btqC4uKcq7H/4Pmwbc2IgMyWfsgGXm0fAK/o.jpg"><meta property="og:description" content="카카오 API를 활용하여 다양한 어플리케이션을 개발해보세요. 카카오 로그인, 메시지 보내기, 친구 API, 인공지능 API 등을 제공합니다."><meta property="og:site_name" content="Kakao Developers"><title>디자인 가이드 | Kakao Developers 문서</title><meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"><meta name="description" content="이 문서는 카카오 로그인 버튼, 카카오싱크 로그인 버튼, 카카오 싱크 홍보 도구와 같이 카카오 서비스 이용에 필요한 디자인 요소를 기준에 맞게 사용하기 위한 가이드라인을 안내합니다."><link rel="shortcut icon" href="https://developers.kakao.com/docs/static/image/favicon.ico"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/common.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/common_m.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/layout.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/breadcrumb.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/menu.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/floating.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/vs2015.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/tabs.css"><link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/repo.css"><script>const docs_lang = "ko"</script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/tabs.js"></script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/copyUrl.js"></script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/title.js"></script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/menu.js"></script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/box.js"></script><script defer="" src="./디자인 가이드 _ Kakao Developers 문서_files/tooltip.js"></script><script src="./디자인 가이드 _ Kakao Developers 문서_files/highlight.pack.js"></script><script>hljs.highlightAll()</script></head><body>
+<link rel="stylesheet" href="./디자인 가이드 _ Kakao Developers 문서_files/layout.ba0858c71b5fbe38a447.css">
+<div id="__layout__" data-preloaded-data="%7B%22phase%22%3A%22release%22%7D" class="mobile"><div class="KDC_Layout__root__1vTdp"><div id="kakaoHead" class="KDC_Header__root__2Btke" role="banner"><h1 class="tit_logo"><a href="https://developers.kakao.com/" id="kakaoServiceLogo" class="link_kakaodevelopers"><span class="kdc_ico_developers">kakao developers</span></a></h1><nav id="kakaoGnb" class="gnb_developers" role="navigation"><h2 class="screen_out">메인 메뉴</h2><div class="menu_gnb"><button type="button" class="btn_gnb show_m" aria-haspopup="true" aria-expanded="false"><span class="kdc_ico_developers">메뉴 열기</span></button><div class="area_gnb"><ul class="list_gnb"><li><a href="https://developers.kakao.com/console/app" class="link_gnb">내 애플리케이션</a></li><li><a href="https://developers.kakao.com/product" class="link_gnb">제품</a></li><li><a href="https://developers.kakao.com/docs" class="link_gnb">문서</a></li><li><a href="https://developers.kakao.com/tool" class="link_gnb">도구</a></li><li><a href="https://devtalk.kakao.com/" target="_blank" class="link_gnb">포럼<span class="kdc_ico_developers"></span></a></li><li class="show_m"><div class="menu_lang"><strong class="screen_out">언어</strong><div class="area_lang"><ul class="list_lang"><li><a href="https://developers.kakao.com/changeLang?lang=ko" class="link_lang">KOR</a></li><li><a href="https://developers.kakao.com/changeLang?lang=en" class="link_lang selected">ENG</a></li></ul></div></div></li></ul><div class="box_gnbfoot show_m"><strong class="screen_out">관련사이트</strong><ul class="list_site"><li><a href="https://tech.kakao.com/" class="link_site">Kakao Tech Blog</a></li><li><span class="txt_bar">|</span><a href="https://with.kakao.com/" class="link_site">with kakao</a></li></ul><small class="txt_copy">Copyright ©<!-- --> <a href="https://www.kakaocorp.com/" class="link_kako">Kakao Corp.</a> <!-- -->All rights reserved.</small></div></div></div><strong class="screen_out">계정 정보</strong><div class="menu_my show_pc"><a href="https://developers.kakao.com/login" class="link_login">로그인</a></div><div class="menu_search show_pc"><button type="button" class="btn_menu"><span class="kdc_ico_developers">검색</span></button></div><div class="menu_quick show_pc"><button type="button" class="btn_menu" aria-haspopup="true" aria-expanded="false"><span class="kdc_ico_developers">서비스 바로가기 메뉴</span></button></div><div class="menu_lang show_pc"><strong class="screen_out">언어</strong><div class="area_lang"><ul class="list_lang"><li><a href="https://developers.kakao.com/changeLang?lang=ko" class="link_lang">KOR</a></li><li><a href="https://developers.kakao.com/changeLang?lang=en" class="link_lang selected">ENG</a></li></ul></div></div></nav></div><div class="KDC_Body__root__1Q-tq no_breadcrumb"><div id="docsRoot"><div class="box_pathinfo show_pc"><button class="btn_menuopen" type="button"><span class="ico_developers ir">open menu</span></button><button class="btn_menuclose" type="button"><span class="ico_developers ir">close menu</span></button><strong class="screen_out">페이지 이동경로</strong><ul class="list_path"><li class="item_path"><!-- 2019-07-23 클래스 추가 : item_path--><em class="link_path">문서</em><span class="txt_arr">&gt;</span></li><li class="item_path"><!-- 2019-07-23 클래스 추가 : item_path--><em class="link_path">유용한 참고 정보</em><span class="txt_arr">&gt;</span></li><li class="item_path on"><em class="emph_path">디자인 가이드</em></li></ul></div><div class="menu_side" id="mFeature"><!-- 애니메이션시 클래스 제어해주세요. 로딩시 .menu_side에 class="obj_motionoff" 추가되어있고, classs="obj_motionon" 추가됩니다.--><!-- 모바일 LNB 열림 : menuside_on--><button class="btn_menutoggle btn_opentype show_m" type="button"><span class="txt_opentype">유용한 참고 정보</span><span class="ico_developers"></span></button><div class="inner_side"><h2 class="screen_out">menu</h2><div class="area_sidemenu side_document without_category"><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">시작하기</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/app" target="_self"><span class="txt_sidemenu">애플리케이션 등록</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/getting-started/platform" target="_self"><span class="txt_sidemenu">카카오 플랫폼 이해하기</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오 로그인</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/prerequisite" target="_self"><span class="txt_sidemenu">설정하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaologin/trouble-shooting" target="_self"><span class="txt_sidemenu">문제 해결</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오싱크</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/prerequisite" target="_self"><span class="txt_sidemenu">설정하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/design" target="_self"><span class="txt_sidemenu">서비스 설계하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/request" target="_self"><span class="txt_sidemenu">적용하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/terms" target="_self"><span class="txt_sidemenu">동의한 약관 확인하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/shipping" target="_self"><span class="txt_sidemenu">배송지 조회하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/auto-login" target="_self"><span class="txt_sidemenu">톡에서 자동 로그인</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/dynamic-terms" target="_self"><span class="txt_sidemenu">약관 선택해 동의 받기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/plugin" target="_self"><span class="txt_sidemenu">고급: 싱크 플러그인</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/how-to-use" target="_self"><span class="txt_sidemenu">마케팅 활용하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/ecp" target="_self"><span class="txt_sidemenu">전자상거래 플랫폼을 위한 가이드</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaosync/checklist" target="_self"><span class="txt_sidemenu">체크리스트</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오톡 소셜</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-social/trouble-shooting" target="_self"><span class="txt_sidemenu">문제 해결</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">메시지</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/prerequisite" target="_self"><span class="txt_sidemenu">설정하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/message-template" target="_self"><span class="txt_sidemenu">메시지 템플릿</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/js-link" target="_self"><span class="txt_sidemenu">카카오톡 공유: JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/android-link" target="_self"><span class="txt_sidemenu">카카오톡 공유: Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/ios-link" target="_self"><span class="txt_sidemenu">카카오톡 공유: iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/flutter-link" target="_self"><span class="txt_sidemenu">카카오톡 공유: Flutter</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/rest-api" target="_self"><span class="txt_sidemenu">카카오톡 메시지: REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/js" target="_self"><span class="txt_sidemenu">카카오톡 메시지: JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/android" target="_self"><span class="txt_sidemenu">카카오톡 메시지: Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/ios" target="_self"><span class="txt_sidemenu">카카오톡 메시지: iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/message/flutter" target="_self"><span class="txt_sidemenu">카카오톡 메시지: Flutter</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오스토리</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaostory/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오톡 채널</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/prerequisite" target="_self"><span class="txt_sidemenu">설정하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaotalk-channel/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오페이</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaopay/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaopay/single-payment" target="_self"><span class="txt_sidemenu">단건 결제</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaopay/subscription" target="_self"><span class="txt_sidemenu">정기 결제</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaopay/payment-detail" target="_self"><span class="txt_sidemenu">주문 조회</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaopay/cancellation" target="_self"><span class="txt_sidemenu">결제 취소</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오모먼트</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/ad-account" target="_self"><span class="txt_sidemenu">광고 만들기: 광고계정</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/campaign" target="_self"><span class="txt_sidemenu">광고 만들기: 캠페인</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/ad-group" target="_self"><span class="txt_sidemenu">광고 만들기: 광고그룹</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/targeting" target="_self"><span class="txt_sidemenu">광고그룹 타겟 조회</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/target-custom" target="_self"><span class="txt_sidemenu">광고그룹 맞춤타겟 조회</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/creatives" target="_self"><span class="txt_sidemenu">광고 만들기: 소재</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/bizboard-landing" target="_self"><span class="txt_sidemenu">비즈보드 랜딩 유형 조회</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/report" target="_self"><span class="txt_sidemenu">보고서</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/message" target="_self"><span class="txt_sidemenu">메시지 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/ad-view" target="_self"><span class="txt_sidemenu">애드뷰 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/talk-business-form" target="_self"><span class="txt_sidemenu">비즈니스폼 연동 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/pixel-and-sdk" target="_self"><span class="txt_sidemenu">픽셀 &amp; SDK 연동 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/audience" target="_self"><span class="txt_sidemenu">오디언스 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/target-reaction-mgmt" target="_self"><span class="txt_sidemenu">광고반응타겟 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/customer-files" target="_self"><span class="txt_sidemenu">고객파일 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/friend-group" target="_self"><span class="txt_sidemenu">친구그룹 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/ad-account-mgmt" target="_self"><span class="txt_sidemenu">광고계정 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/billing" target="_self"><span class="txt_sidemenu">결제 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/reference" target="_self"><span class="txt_sidemenu">레퍼런스</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaomoment/type-info" target="_self"><span class="txt_sidemenu">타입 정보</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오 키워드광고</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/ad-account" target="_self"><span class="txt_sidemenu">광고 만들기: 광고계정</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/biz-channel" target="_self"><span class="txt_sidemenu">광고 만들기: 비즈채널</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/campaign" target="_self"><span class="txt_sidemenu">광고 만들기: 캠페인</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/ad-group" target="_self"><span class="txt_sidemenu">광고 만들기: 광고그룹</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/keyword" target="_self"><span class="txt_sidemenu">광고 만들기: 키워드</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/creative" target="_self"><span class="txt_sidemenu">광고 만들기: 소재</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/creative-link" target="_self"><span class="txt_sidemenu">광고 만들기: 소재연결</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/image-mgmt" target="_self"><span class="txt_sidemenu">이미지 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/document" target="_self"><span class="txt_sidemenu">심사서류 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/pixel-and-sdk" target="_self"><span class="txt_sidemenu">픽셀 &amp; SDK 연동 관리</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/business-info" target="_self"><span class="txt_sidemenu">사업자 정보</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/report" target="_self"><span class="txt_sidemenu">보고서</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/keyword-ad/reference" target="_self"><span class="txt_sidemenu">레퍼런스</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">푸시 알림</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/push/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/push/prerequisite" target="_self"><span class="txt_sidemenu">설정하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/push/rest-api" target="_self"><span class="txt_sidemenu">REST API</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/push/android" target="_self"><span class="txt_sidemenu">Legacy Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/push/ios" target="_self"><span class="txt_sidemenu">Legacy iOS</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">Daum 검색</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/daum-search/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide" target="_self"><span class="txt_sidemenu">개발 가이드</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--><li><a class="btn_opentype" href="https://apis.map.kakao.com/" target="_blank"> <span class="txt_opentype">지도</span><span class="outlink ico_developers"> </span></a></li></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">로컬</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/local/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/local/dev-guide" target="_self"><span class="txt_sidemenu">개발 가이드</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">카카오내비</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaonavi/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaonavi/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaonavi/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaonavi/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/kakaonavi/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li><li><a class="link_sidemenu" href="https://developers.kakaomobility.com/product/api" target="_blank"><span class="txt_sidemenu">길찾기 SDK &amp; API</span><span class="outlink ico_developers"> </span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">포즈</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/pose/common" target="_self"><span class="txt_sidemenu">이해하기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/pose/dev-guide" target="_self"><span class="txt_sidemenu">개발 가이드</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">SDK 다운로드</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/js" target="_self"><span class="txt_sidemenu">JavaScript</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/android" target="_self"><span class="txt_sidemenu">Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/android-v1" target="_self"><span class="txt_sidemenu">Legacy Android</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/ios" target="_self"><span class="txt_sidemenu">iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/ios-v1" target="_self"><span class="txt_sidemenu">Legacy iOS</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/sdk-download/flutter" target="_self"><span class="txt_sidemenu">Flutter</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul><ul class="list_opentype list_arrow without_category open_on"><li><button class="btn_opentype" type="button" data-product="reference"><span class="txt_opentype">유용한 참고 정보</span><span class="ico_developers"> </span></button></li><li><ul class="list_defaulttype"><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/rest-api-reference" target="_self"><span class="txt_sidemenu">REST API 레퍼런스</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/scope-of-support" target="_self"><span class="txt_sidemenu">지원 범위</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/glossary" target="_self"><span class="txt_sidemenu">용어집</span></a></li><li class="on"><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide" target="_self"><span class="txt_sidemenu">디자인 가이드</span></a><ul class="list_detailidx without_category"><li><a class="link_detailidx on" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#login-button"><span class="txt_detailidx">카카오 로그인 버튼</span></a></li><li><a class="link_detailidx" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#sync-login-button"><span class="txt_detailidx">카카오싱크 로그인 버튼</span></a></li><li><a class="link_detailidx" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#sync-marketing-kit"><span class="txt_detailidx">카카오싱크 홍보 도구</span></a></li></ul></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/callback" target="_self"><span class="txt_sidemenu">고급: 콜백 알림 받기</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/stats" target="_self"><span class="txt_sidemenu">통계</span></a></li><li><a class="link_sidemenu" href="https://developers.kakao.com/docs/latest/ko/reference/faq" target="_self"><span class="txt_sidemenu">FAQ</span></a></li></ul></li><!-- 2020-03-04 약관 추가, 2020-10-27 out link 기능 추가--></ul></div></div></div><div class="dimmed_g"></div><div id="docsContent"><div id="mArticle"><div class="group_subject"><div class="area_subject"><h2 class="tit_subject">유용한 참고 정보</h2></div><div class="box_bgview"><img class="img_thumb show_pc" src="./디자인 가이드 _ Kakao Developers 문서_files/reference.png" height="200"><img class="img_thumb show_m" src="./디자인 가이드 _ Kakao Developers 문서_files/reference(1).png" height="160"></div></div><div class="area_document"><h2>디자인 가이드</h2><p>이 문서는 카카오 로그인 버튼, 카카오싱크 로그인 버튼, 카카오 싱크 홍보 도구와 같이 카카오 서비스 이용에 필요한 디자인 요소를 기준에 맞게 사용하기 위한 가이드라인을 안내합니다.</p>
+<h3><a class="heading-offset-anchor" id="login-button"></a>카카오 로그인 버튼<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#login-button" onclick="copy_url(&#39;login-button&#39;)"><span class="header-link"></span></a></h3><p>카카오 로그인 기능을 구현할 때 필요한 카카오 로그인 버튼을 올바르게 적용하는 방법을 안내합니다.</p>
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    구성
+</strong>
+
+<div class="text_indent">
+
+<p>카카오 로그인 버튼은 카카오를 상징하는 말풍선 모양의 '심볼(Symbol)', 버튼의 용도를 안내하는 '레이블(Label)', 그리고 심볼과 레이블을 감싸는 '컨테이너(Container)'로 이루어져 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-component.png" alt="카카오 로그인 버튼 구성" class="img_thumb" width="768x">
+</span>
+
+</div>
+
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    표준 디자인
+</strong>
+
+<div class="text_indent">
+
+<p>카카오에서 권장하는 크기와 비율에 맞춰 제작된 표준 카카오 로그인 버튼은 [도구] &gt; [리소스 다운로드]에서 다운로드할 수 있습니다. 버튼 이미지는 PNG 파일과 PSD 파일로 제공됩니다. 사용자 환경에 맞게 변경이 필요한 경우, '전체 다운로드(.zip)'를 눌러 원본 파일인 PSD 파일을 받아 수정할 수 있습니다.</p>
+<p><button type="button" class="normal outlink" onclick="window.open(&#39;/tool/resource/login&#39;)">카카오 로그인 버튼 리소스 다운로드<span>outlink</span></button></p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-standard.png" alt="카카오 로그인 버튼 표준 디자인" class="img_thumb" width="768px">
+</span>
+
+</div>
+
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    활용 가이드
+</strong>
+
+<div class="text_indent">
+
+<p>카카오에서 제공하는 표준 디자인의 버튼을 사용하는 것을 권장하지만, 서비스의 UI/UX에 맞춰 카카오 로그인 버튼의 수정이 필요할 경우, 버튼을 유동적으로 재구성하여 사용할 수 있습니다. 카카오 고유의 이미지를 해치지 않는 범위 내에서 아래 버튼 디자인 규정을 따라 제작합니다.</p>
+<h4><a class="heading-offset-anchor" id="색상(color)"></a>색상(Color)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%83%89%EC%83%81(color)" onclick="copy_url(&#39;색상(color)&#39;)"><span class="header-link"></span></a></h4><table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>색상</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>컨테이너</td>
+<td>#FEE500</td>
+</tr>
+<tr>
+<td>심볼</td>
+<td>#000000</td>
+</tr>
+<tr>
+<td>레이블</td>
+<td>#000000 85%</td>
+</tr>
+</tbody></table>
+<ul>
+<li>위의 색상 규정에 벗어난 색상을 적용해서는 안 됩니다.</li>
+<li>버튼의 색상을 지정하지 않아 타사 로그인 버튼을 강조해서는 안 됩니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-example-color.png" alt="카카오 로그인 버튼 색상 가이드" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="레이블(label)"></a>레이블(Label)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EB%A0%88%EC%9D%B4%EB%B8%94(label)" onclick="copy_url(&#39;레이블(label)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>기본 레이블은 다음과 같이 완성형과 축약형으로 사용할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>국문</th>
+<th>영문</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>완성형</td>
+<td>카카오 로그인</td>
+<td>Login with Kakao</td>
+</tr>
+<tr>
+<td>축약형</td>
+<td>로그인</td>
+<td>Login</td>
+</tr>
+</tbody></table>
+<ul>
+<li>레이블의 폰트는 #30Pt(Sp/Dp) 크기에 OS 별 기본 시스템 서체를 사용합니다.</li>
+</ul>
+<h4><a class="heading-offset-anchor" id="심볼(symbol)"></a>심볼(Symbol)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%8B%AC%EB%B3%BC(symbol)" onclick="copy_url(&#39;심볼(symbol)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>카카오를 상징하는 말풍선 모양의 심볼을 기본으로 사용합니다.  </li>
+<li>심볼(말풍선)의 형태, 비율, 색상은 변경할 수 없습니다.</li>
+<li>카카오 CI를 심볼로 적용할 수 없습니다.</li>
+<li>기능 아이콘을 카카오 로그인 버튼의 심볼로 사용할 수 없습니다.</li>
+<li>심볼 없이 카카오 로그인 버튼을 구성할 수 없습니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-example-symbol.png" alt="카카오 로그인 버튼 심볼 가이드" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="컨테이너(container)"></a>컨테이너(Container)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88(container)" onclick="copy_url(&#39;컨테이너(container)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>컨테이너 박스의 radius는 12 pixel로 적용합니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-container.png" alt="카카오 로그인 버튼 컨테이너 가이드" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="크기-변경(size-change)"></a>크기 변경(Size Change)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%ED%81%AC%EA%B8%B0-%EB%B3%80%EA%B2%BD(size-change)" onclick="copy_url(&#39;크기-변경(size-change)&#39;)"><span class="header-link"></span></a></h4><p><strong>컨테이너의 가로 길이를 늘려야 할 경우:</strong></p>
+<ul>
+<li>레이블과 심볼 영역은 유지하고 컨테이너의 확장구간을 좌, 우 방향으로 동일하게 확장합니다.</li>
+<li>심볼은 좌측 정렬하거나, 레이블과 함께 가운데 정렬할 수 있습니다.</li>
+<li>레이블의 자간 및 크기는 변경하지 않습니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/login-button-size-change.png" alt="카카오 로그인 버튼 크기 변경 가이드" class="img_thumb" width="768px">
+</span>
+
+<p><strong>버튼의 크기를 전체적으로 확대해야 할 경우:</strong></p>
+<ul>
+<li>컨테이너의 크기에 따라 심볼과 레이블 크기 비율을 유지하여 확대합니다.</li>
+<li>레이블의 세로 길이는 컨테이너의 세로 길이의 1/3을 넘지 않도록 합니다.</li>
+</ul>
+<p><strong>표준 디자인 보다 더 작은 버튼을 사용해야 할 경우:</strong></p>
+<ul>
+<li>무리하게 비율을 조정하지 않고 축약형인 [로그인] 버튼을 활용합니다.</li>
+</ul>
+</div>
+
+<h3><a class="heading-offset-anchor" id="sync-login-button"></a>카카오싱크 로그인 버튼<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#sync-login-button" onclick="copy_url(&#39;sync-login-button&#39;)"><span class="header-link"></span></a></h3><p>카카오싱크를 도입한 서비스에 적용할 수 있는 카카오싱크 로그인 버튼을 올바르게 적용하는 방법을 안내합니다. 이 버튼은 카카오싱크를 적용한 서비스의 회원가입이나 로그인 페이지 혹은 회원가입/로그인 통합 페이지에서 모두 구분 없이 사용할 수 있습니다.</p>
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    구성
+</strong>
+
+<div class="text_indent">
+
+<p>카카오로 시작하기 버튼은 카카오를 상징하는 말풍선 모양의 '심볼(Symbol)', 버튼의 용도를 안내하는 '레이블(Label)', 그리고 심볼과 레이블을 감싸는 '컨테이너(Container)'로 이루어져 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_component.png" alt="카카오로 시작하기 버튼 구성" class="img_thumb" width="768x">
+</span>
+
+</div>
+
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    표준 디자인
+</strong>
+
+<div class="text_indent">
+
+<p>카카오싱크 로그인 버튼의 레이블은 도구를 나타내는 '카카오로'와 기능을 나타내는 '시작하기'로 구성되어 있습니다. 버튼을 적용하는 환경과 목적에 따라 기능만을 명시한 축약형인 '시작하기'로 사용할 수 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_standard.png" alt="카카오로 시작하기 버튼 표준 디자인" class="img_thumb" width="768px">
+</span>
+
+<p>카카오에서 권장하는 크기와 비율에 맞춰 제작된 표준 버튼은 [도구] &gt; [리소스 다운로드]에서 다운로드할 수 있습니다. 버튼 이미지는 PNG 파일과 PSD 파일로 제공됩니다. 사용자 환경에 맞게 변경이 필요한 경우, '전체 다운로드(.zip)'를 눌러 원본 파일인 PSD 파일을 받아 수정할 수 있습니다.</p>
+<p><button type="button" class="normal outlink" onclick="window.open(&#39;/tool/resource/kakaosync&#39;)">카카오싱크 로그인 버튼 리소스 다운로드<span>outlink</span></button></p>
+</div>
+
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    활용 가이드
+</strong>
+
+<div class="text_indent">
+
+<p>카카오에서 제공하는 표준 디자인의 버튼을 사용하는 것을 권장하지만, 서비스의 UI/UX에 맞춰 카카오 로그인 버튼의 수정이 필요할 경우, 버튼을 유동적으로 재구성하여 사용할 수 있습니다. 가이드에 어긋난 버튼의 활용은 카카오싱크의 아이덴티티를 왜곡시키고 커뮤니케이션을 방해하므로, 임의로 색상과 형태를 변형시키지 않도록 합니다. 카카오 고유의 이미지를 해치지 않는 범위 내에서 다음 디자인 규정을 따라 제작합니다.</p>
+<h4><a class="heading-offset-anchor" id="색상(color)"></a>색상(Color)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%83%89%EC%83%81(color)" onclick="copy_url(&#39;색상(color)&#39;)"><span class="header-link"></span></a></h4><table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th>색상</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>컨테이너</td>
+<td>#FEE500</td>
+</tr>
+<tr>
+<td>심볼</td>
+<td>#000000, 90%</td>
+</tr>
+<tr>
+<td>레이블</td>
+<td>#191919</td>
+</tr>
+</tbody></table>
+<ul>
+<li>위의 색상 규정에 벗어난 색상을 적용해서는 안 됩니다.</li>
+<li>버튼의 색상을 지정하지 않아 타사 로그인 버튼을 강조해서는 안 됩니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_example_color.png" alt="카카오로 시작하기 버튼 색상 가이드" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="심볼(symbol)"></a>심볼(Symbol)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%8B%AC%EB%B3%BC(symbol)" onclick="copy_url(&#39;심볼(symbol)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>카카오를 상징하는 말풍선 모양의 심볼을 기본으로 사용합니다.  </li>
+<li>심볼의 형태, 비율, 색상은 변경할 수 없습니다.</li>
+<li>카카오톡의 심볼이나 카카오 CI를 심볼로 적용할 수 없습니다.</li>
+<li>기능 아이콘을 카카오로 시작하기 버튼의 심볼로 사용할 수 없습니다.</li>
+<li>심볼 없이 카카오로 시작하기 버튼을 구성할 수 없습니다.</li>
+<li>아웃라인만 있는 심볼을 사용할 수 없습니다. </li>
+<li>심볼의 방향을 임의로 변경할 수 없습니다.</li>
+<li>심볼은 타사의 심볼과 동등한 시각적 비중을 가져야 합니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_example_symbol.png" alt="카카오로 시작하기 버튼 심볼 가이드" class="img_thumb" width="768px">
+</span>
+
+
+<h4><a class="heading-offset-anchor" id="레이블(label)"></a>레이블(Label)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EB%A0%88%EC%9D%B4%EB%B8%94(label)" onclick="copy_url(&#39;레이블(label)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>레이블의 폰트는 #30Pt(Sp/Dp) 크기에 OS 별 기본 시스템 서체를 사용합니다.</li>
+<li>기본 레이블은 다음과 같이 완성형과 축약형으로 사용할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>국문</th>
+<th>영문</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>완성형</td>
+<td>카카오로 시작하기</td>
+<td>Start with Kakao</td>
+</tr>
+<tr>
+<td>축약형</td>
+<td>시작하기</td>
+<td>Start</td>
+</tr>
+</tbody></table>
+<ul>
+<li>완성형과 축약형 레이블 외의 다른 레이블을 적용할 수 없습니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_example_lable.png" alt="카카오로 시작하기 버튼 레이블 가이드" class="img_thumb" width="768px">
+</span>
+
+
+<h4><a class="heading-offset-anchor" id="컨테이너(container)"></a>컨테이너(Container)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88(container)" onclick="copy_url(&#39;컨테이너(container)&#39;)"><span class="header-link"></span></a></h4><ul>
+<li>컨테이너 박스의 radius는 6 dp(12 pixel)로 적용합니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_example_container.png" alt="카카오로 시작하기 버튼 컨테이너 가이드" class="img_thumb" width="768px">
+</span>
+
+<ul>
+<li>타사의 버튼과 크기를 다르게 적용하여 타사의 버튼을 강조해서는 안됩니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_example_size.png" alt="카카오로 시작하기 버튼 컨테이너 변경 시 금지사항 가이드" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="크기-변경(size-change)"></a>크기 변경(Size Change)<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%ED%81%AC%EA%B8%B0-%EB%B3%80%EA%B2%BD(size-change)" onclick="copy_url(&#39;크기-변경(size-change)&#39;)"><span class="header-link"></span></a></h4><p><strong>컨테이너의 가로 길이를 늘려야 할 경우:</strong></p>
+<ul>
+<li>유지 구간 내의 세로 비율을 유지하면서 컨테이너의 확장구간을 좌, 우 방향으로 동일하게 확장합니다.</li>
+<li>심볼은 좌측 정렬하거나, 레이블과 함께 가운데 정렬할 수 있습니다.</li>
+<li>레이블의 자간 및 크기는 변경하지 않습니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync_login_button_size_change.png" alt="카카오로 시작하기 버튼 컨테이너 변경 가이드" class="img_thumb" width="768px">
+</span>
+
+<p><strong>버튼의 크기를 전체적으로 확대해야 할 경우:</strong></p>
+<ul>
+<li>컨테이너의 크기에 따라 심볼과 레이블 크기 비율을 유지하여 확대합니다.</li>
+<li>레이블의 세로 길이는 컨테이너의 세로 길이의 1/3을 넘지 않도록 합니다.</li>
+</ul>
+<p><strong>표준 디자인 보다 더 작은 버튼을 사용해야 할 경우:</strong></p>
+<ul>
+<li>무리하게 비율을 조정하지 않고 축약형인 [시작하기] 버튼을 활용합니다.</li>
+</ul>
+</div>
+
+<h3><a class="heading-offset-anchor" id="sync-marketing-kit"></a>카카오싱크 홍보 도구<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#sync-marketing-kit" onclick="copy_url(&#39;sync-marketing-kit&#39;)"><span class="header-link"></span></a></h3><p>카카오싱크를 통해 간편가입을 유도하는 홍보 도구를 제작할 때 필요한 사항들을 안내합니다. 각 구성 요소를 임의로 수정해서는 안 되며, 다음 가이드를 준수하여 홍보 도구를 제작합니다.</p>
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    구성
+</strong>
+
+<div class="text_indent">
+
+<p>카카오싱크 홍보 도구는 파트너와 카카오톡의 로고가 조합된 '로고' 영역, 'QR 코드' 영역, '마케팅 메시지' 영역, '프로세스' 설명 영역으로 이루어져 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-component.png" alt="카카오싱크 홍보 도구 구성" class="img_thumb" width="768px">
+</span>
+
+<h4><a class="heading-offset-anchor" id="로고"></a>로고<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EB%A1%9C%EA%B3%A0" onclick="copy_url(&#39;로고&#39;)"><span class="header-link"></span></a></h4><p>서비스의 로고와 카카오톡 로고의 조합으로 구성되며 브랜드 이미지를 인식시키는 중요한 요소로 활용됩니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-logo.png" alt="카카오싱크 홍보 도구 로고 가이드" class="img_thumb" width="768px">
+</span>
+
+<ul>
+<li>로고는 포스터의 로고 영역에서 위의 여백 예시를 참고하여 가운데에 배치합니다.</li>
+</ul>
+<h4><a class="heading-offset-anchor" id="qr-코드"></a>QR 코드<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#qr-%EC%BD%94%EB%93%9C" onclick="copy_url(&#39;qr-코드&#39;)"><span class="header-link"></span></a></h4><span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-qr-code.png" alt="카카오싱크 홍보 도구 QR 가이드" class="img_thumb" width="768px">
+</span>
+
+<ul>
+<li>QR 코드의 주목도와 인식률을 높이기 위해 QR 코드 영역의 안쪽으로 하얀색 여백을 확보하여 QR코드를 적용합니다.</li>
+<li>적용할 영역의 환경에 따라 비율을 확대 및 축소하여 사용하거나, 다양한 배경색에 유동적으로 적용할 수 있습니다.</li>
+</ul>
+<h4><a class="heading-offset-anchor" id="마케팅-메시지"></a>마케팅 메시지<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%EB%A7%88%EC%BC%80%ED%8C%85-%EB%A9%94%EC%8B%9C%EC%A7%80" onclick="copy_url(&#39;마케팅-메시지&#39;)"><span class="header-link"></span></a></h4><p>간편가입을 유도하는 마케팅 메시지는 축약형(A 타입)과 확장형(B 타입)으로 사용할 수 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-message.png" alt="마케팅 문구 가이드" class="img_thumb" width="768px">
+</span>
+
+<ul>
+<li>공간의 제약에 따라 서비스의 로고를 표기할 수 없을 경우 확장형을 사용하여 서비스의 브랜드명을 함께 안내합니다. </li>
+<li>메시지에 적용되는 서식은 다음과 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>서식</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>서체</td>
+<td>Noto Sans C JK KR</td>
+</tr>
+<tr>
+<td>속성</td>
+<td>Bold</td>
+</tr>
+<tr>
+<td>자간</td>
+<td>-15</td>
+</tr>
+<tr>
+<td>색상</td>
+<td>CO MO YO K100, PANTON Solid Neutral Black C (or U)</td>
+</tr>
+</tbody></table>
+<h4><a class="heading-offset-anchor" id="프로세스"></a>프로세스<a class="anchor" href="https://developers.kakao.com/docs/latest/ko/reference/design-guide#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4" onclick="copy_url(&#39;프로세스&#39;)"><span class="header-link"></span></a></h4><p>카카오톡 간편가입 방법을 이해하기 쉽게 설명하는 프로세스 설명 영역은 텍스트와 아이콘 두 가지 타입으로 사용할 수 있습니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-process.png" alt="카카오싱크 간편가입 과정 안내 문구 가이드" class="img_thumb" width="768px">
+</span>
+
+<ul>
+<li>프로세스 설명은 포스터의 프로세스 영역에서 위의 여백 예시를 참고하여 가운데에 배치합니다.</li>
+<li>적용할 영역의 환경에 따라 비율을 확대 및 축소하여 사용하거나, 다양한 배경색에 유동적으로 적용할 수 있습니다.</li>
+</ul>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-background-color.png" alt="카카오싱크 간편가입 과정 안내 예시" class="img_thumb" width="768px">
+</span>
+
+</div>
+
+<strong class="tit_step">
+    <span class="ico_developers"></span>
+    적용 예시
+</strong>
+
+<div class="text_indent">
+
+<p>앞서 설명한 가이드에 준수하여 제작된 홍보 도구의 예시입니다.</p>
+<span class="img_preveal">
+  <img src="./디자인 가이드 _ Kakao Developers 문서_files/sync-marketing-kit-example.png" alt="카카오싱크 홍보 도구 적용 예시" class="img_thumb" width="768px">
+</span>
+
+</div></div></div></div></div></div><div id="kakaoFoot" class="KDC_Footer__root__236pa KDC_Body__hidden_footer__2NZGb" role="contentinfo"><div class="inner_foot"><h2 class="screen_out">서비스 이용정보</h2><div class="area_familysite"><div class="opt_relation"><div class="screen_out">Family Site <!-- -->선택상자</div><span class="screen_out">선택내용<!-- --> : </span><strong class="tit_opt"><button class="link_tit" aria-haspopup="true" aria-expanded="false">Family Site<span class="kdc_ico_developers">열기</span></button></strong></div><div class="box_site"><a href="https://kakaobusiness-policy.kakao.com/SERVICE/" class="link_site" target="_blank">카카오비즈니스 이용약관</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-terms" class="link_site">서비스 약관</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-policies" class="link_site">운영 정책</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-policies#quota" class="link_site">쿼터</a><span class="txt_bar">|</span><a href="https://business.kakao.com/policy/privacy/" class="link_site link_privacy" target="_blank"><strong>개인정보 처리방침</strong></a></div></div><div class="area_copyright"><small class="txt_copy">©<!-- --> <a href="https://www.kakaocorp.com/" class="link_kako">Kakao Corp.</a></small></div></div></div><div id="kakaoFoot" class="KDC_Footer__root__236pa" role="contentinfo"><div class="inner_foot"><h2 class="screen_out">서비스 이용정보</h2><div class="area_familysite"><div class="opt_relation"><div class="screen_out">Family Site <!-- -->선택상자</div><span class="screen_out">선택내용<!-- --> : </span><strong class="tit_opt"><button class="link_tit" aria-haspopup="true" aria-expanded="false">Family Site<span class="kdc_ico_developers">열기</span></button></strong></div><div class="box_site"><a href="https://kakaobusiness-policy.kakao.com/SERVICE/" class="link_site" target="_blank">카카오비즈니스 이용약관</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-terms" class="link_site">서비스 약관</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-policies" class="link_site">운영 정책</a><span class="txt_bar">|</span><a href="https://developers.kakao.com/terms/latest/site-policies#quota" class="link_site">쿼터</a><span class="txt_bar">|</span><a href="https://business.kakao.com/policy/privacy/" class="link_site link_privacy" target="_blank"><strong>개인정보 처리방침</strong></a></div></div><div class="area_copyright"><small class="txt_copy">©<!-- --> <a href="https://www.kakaocorp.com/" class="link_kako">Kakao Corp.</a></small></div></div></div></div></div>
+<div id="modal-root"><div><button type="button" class="KDC_GoToTop__root__1yTDf show_pc show_on" style="bottom: 32px;"><span class="kdc_ico_developers">상단으로 이동</span></button></div></div>
+<script src="./디자인 가이드 _ Kakao Developers 문서_files/layout.f225515361539f239011.js"></script>
+</body></html>

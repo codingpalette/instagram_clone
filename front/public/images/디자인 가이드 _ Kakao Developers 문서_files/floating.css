@@ -1,0 +1,121 @@
+.floating_menu {
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-right: 16px;
+  min-width: 130px;
+  max-width: max(220px, calc(100% - 1363px));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 160px;
+  left: 1313px;
+  height: auto;
+  max-height: calc(100vh - 210px);
+  scrollbar-width: thin;
+  scrollbar-color: #dddddd transparent;
+}
+.floating_menu::-webkit-scrollbar {
+  width: 5px;
+}
+.floating_menu::-webkit-scrollbar-thumb {
+  background: #dddddd;
+  border-radius: 5px;
+}
+.floating_menu::-webkit-scrollbar-thumb:hover {
+  background: #909090;
+}
+
+.floating_menu .float_header {
+  font-size: 12px;
+  letter-spacing: -0.2px;
+  line-height: 20px;
+  height: 20px;
+  padding-bottom: 2px;
+  color: #111111;
+  font-family: 'NotoSans Medium', 'Malgun Gothic', '맑은 고딕',
+    'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+
+.floating_menu .link_detailidx {
+  display: block;
+  padding: 2px 0;
+}
+
+.floating_menu .float_link_txt {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: -0.2px;
+  line-height: 19px;
+  color: #707070;
+  transform: translateY(1px);
+}
+
+.floating_menu .link_detailidx:hover .float_link_txt {
+  color: #111111;
+}
+
+.floating_menu .link_detailidx.on .float_link_txt {
+  color: #111111;
+  font-family: 'NotoSans Medium', 'Malgun Gothic', '맑은 고딕',
+    'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+
+.floating_menu .sub_link_detailidx {
+  display: block;
+  padding: 3px 0 3px 11px;
+}
+
+.floating_menu .float_sub_list {
+  position: relative;
+}
+
+.floating_menu .float_sub_list:before {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  bottom: 5px;
+  width: 1px;
+  background-color: #2d50ff;
+  opacity: 0.2;
+  content: '';
+}
+
+.floating_menu .float_sub_link_txt {
+  display: inline-block;
+  position: relative;
+  font-size: 12px;
+  letter-spacing: -0.2px;
+  line-height: 19px;
+  color: #707070;
+  transform: translateY(1px);
+}
+
+.floating_menu .sub_link_detailidx:hover .float_sub_link_txt {
+  color: #111111;
+}
+
+.floating_menu .sub_link_detailidx.on .float_sub_link_txt {
+  color: #111111;
+  font-family: 'NotoSans Medium', 'Malgun Gothic', '맑은 고딕',
+    'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+
+.floating_menu .sub_link_detailidx.on .float_sub_link_txt:before {
+  position: absolute;
+  top: -1px;
+  left: -11px;
+  width: 1px;
+  height: 100%;
+  background-color: #2d50ff;
+  content: '';
+}
+
+@media only screen and (max-width: 1313px) {
+  .floating_menu {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1583px) {
+  .floating_menu {
+    flex: 1;
+  }
+}

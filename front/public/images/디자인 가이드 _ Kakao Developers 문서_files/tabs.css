@@ -1,0 +1,52 @@
+.hidden {
+  display: none !important;
+}
+.tab-header {
+  display: flex;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+.tabs {
+  margin-top: 20px;
+}
+.tab-header > div {
+  float: left;
+  min-width: 100px;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  letter-spacing: 0;
+  background-color: #f8f9f9;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 40px;
+  color: #111;
+  text-align: center;
+  transition: background-color 0.25s;
+  padding: 0 12px;
+  cursor: pointer;
+}
+.tab-header > div.tab_selected {
+  border: 0;
+  color: #fff;
+  background-color: #444;
+  font-family: 'NotoSans Medium', 'Malgun Gothic', '맑은 고딕',
+    'Apple SD Gothic Neo', '돋움', dotum, sans-serif;
+}
+.tab-header > div:first-child {
+  border-right: none;
+}
+.tabs > pre {
+  margin-top: 12px !important;
+}
+.tab-body > div {
+  display: none !important;
+}
+.tab-body > div.tab_body_selected {
+  display: block !important;
+}
+.tab-body > div > pre {
+  margin-top: 0px !important;
+}
+.tab-body > div > table {
+  margin-top: 10px;
+}
