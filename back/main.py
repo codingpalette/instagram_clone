@@ -1,6 +1,8 @@
 from typing import Optional
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
+from middlewares.auth_check import access_control
 from routes import user, post
 from connection import Base, engine
 

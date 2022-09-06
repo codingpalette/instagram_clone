@@ -18,6 +18,11 @@ router = APIRouter(
     prefix="/user",
 )
 
+@router.get('test')
+async def test(db: Session = Depends(get_db)):
+    print('12')
+    print(db)
+    return True
 
 # 유저 체크
 @router.get('/check', summary="유저 체크")
