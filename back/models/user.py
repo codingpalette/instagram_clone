@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, DateTime, func
 from connection import Base
-
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "user"
@@ -15,3 +15,5 @@ class User(Base):
     created_at = Column(DateTime(6), default=func.utc_timestamp(), nullable=False)
     updated_at = Column(DateTime(6), default=func.utc_timestamp(), onupdate=func.utc_timestamp(), nullable=False)
     deleted_at = Column(DateTime(6))
+
+    diary = relationship("Post", back_populates="user")
