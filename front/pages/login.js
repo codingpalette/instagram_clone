@@ -9,6 +9,11 @@ import { faAlignRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
+  const REST_API_KEY = "8a887326294fbc3c6603f52dd74f8a6d";
+  const REDIRECT_URI = "http://localhost:8000/api/user/kakao";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+
   const {register, handleSubmit, watch, formState: { errors },} = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -74,6 +79,7 @@ const Login = () => {
             ></div>
           </div>
           <div className="text-sm w-full font-semibold text-center">
+            <a href={KAKAO_AUTH_URL}>카카오</a>
             <button style={{ color: "#000000d9" }}>카카오톡으로 로그인</button>
           </div>
           <div style={{ color: "#00376B" }} className="text-xs mt-3 mb-3">

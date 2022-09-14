@@ -11,6 +11,5 @@ class Post(Base):
     created_at = Column(DateTime(6), default=func.utc_timestamp(), nullable=False)
     updated_at = Column(DateTime(6), default=func.utc_timestamp(), onupdate=func.utc_timestamp(), nullable=False)
 
-    user = relationship("User", back_populates="post")
-
-    post_hashtag = relationship("PostHashtag", back_populates="post")
+    # user = relationship("User", back_populates="post")
+    # post_hashtag = relationship("PostHashtag", back_populates="post")

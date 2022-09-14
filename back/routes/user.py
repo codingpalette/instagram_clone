@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from starlette.requests import Request
 from sqlalchemy.orm import Session
 from functions import func, token
@@ -10,7 +10,7 @@ import schemas
 import bcrypt
 import datetime
 import jwt
-from dotmap import DotMap
+import httpx
 
 config = conf()
 
@@ -66,9 +66,9 @@ async def user_set(request: Request, post_data: schemas.UserSet, db: Session = D
         raise HTTPException(status_code=401, detail={"result": "fail", "message": "이미 사용중인 이메일 입니다."})
 
     # 닉네임 체크
-    login_nickname_info = await crud_user.user_nickname_get(db, post_data.nickname)
-    if login_nickname_info:
-        raise HTTPException(status_code=401, detail={"result": "fail", "message": "이미 사용중인 닉네임 입니다."})
+    # login_nickname_info = await crud_user.user_nickname_get(db, post_data.nickname)
+    # if login_nickname_info:
+    #     raise HTTPException(status_code=401, detail={"result": "fail", "message": "이미 사용중인 닉네임 입니다."})
 
     # 비밀번호 암호화
     hashed_password = bcrypt.hashpw(post_data.password.encode('utf-8'), bcrypt.gensalt())
@@ -151,3 +151,57 @@ async def log_out(request: Request, db: Session = Depends(get_db)):
         return response
     else:
         raise HTTPException(status_code=501, detail={"result": "fail", "message": "로그아웃 실패"})
+
+
+# 카카오 로그인
+@router.get('/kakao', summary="카카오 로그인 콜백")
+async def kakao_login(request: Request, code: str, db: Session = Depends(get_db)):
+    # 로그인 여부 확인
+    login_info = await func.login_info_get(request)
+    if login_info:
+        raise HTTPException(status_code=401, detail={"result": "fail", "message": "로그아웃 후 이용해 주세요."})
+
+    try:
+        data = {"grant_type": 'authorization_code', "client_id": "8a887326294fbc3c6603f52dd74f8a6d", "redirect_url": 'http://localhost:8000/api/user/kakao', "code": f'{code}'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'}
+        r = httpx.post(f'https://kauth.kakao.com/oauth/token', headers=headers, data=data)
+        res = r.json()
+
+        headers2 = {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8', 'Authorization': f'Bearer {res["access_token"]}'}
+        r2 = httpx.get(f'https://kapi.kakao.com/v2/user/me', headers=headers2)
+        res2 = r2.json()
+        print(res2)
+        # 유저 체크
+        kakao_user_info = await crud_user.kakao_user_get(db, res2["id"])
+        if kakao_user_info:
+            print('로그인 시키기')
+
+        # 유저가 없다고 하면 sns 회원 등록하기
+        save_user = await crud_user.kakao_set(db, res2)
+        print(save_user)
+
+
+        return True
+
+        # 이메일 체크
+        login_email_info = await crud_user.user_email_get(db, res2["kakao_account"]["email"])
+        if login_email_info:
+            print("로그인 시키기")
+            # raise HTTPException(status_code=401, detail={"result": "fail", "message": "이미 사용중인 이메일 입니다."})
+
+        # 닉네임 체크
+        login_nickname_info = await crud_user.user_nickname_get(db, res2["kakao_account"]["profile"]["nickname"])
+        if login_nickname_info:
+            raise HTTPException(status_code=401, detail={"result": "fail", "message": "이미 사용중인 닉네임 입니다."})
+
+        return True
+        # sns 회원 회원가입
+
+        return True
+        # return RedirectResponse("http://localhost:3000")
+
+
+    except Exception as e:
+        print(222)
+        print(e)
+        raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})

@@ -14,6 +14,7 @@ def user_id_get(db: Session, id: schemas.UserIdGet) -> User:
 
 # 이메일로 가져오기
 async def user_email_get(db: Session, email: schemas.UserEmailGet):
+    print(email)
     try:
         return db.query(User).filter(User.email == email).first()
     except Exception as e:
@@ -46,7 +47,7 @@ async def user_set(db: Session, post_data: schemas.UserSet) -> User:
         return db_obj
 
     except Exception as e:
-        # print(e)
+        print(e)
         raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
 
 
@@ -84,4 +85,34 @@ async def log_out(db: Session, id: int) -> User:
         return user_info
 
     except Exception as e:
+        raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
+
+
+# kakao 유저 검색
+async def kakao_user_get(db: Session, sns_id: int) -> User:
+    try:
+        return db.query(User).filter(User.sns_id == sns_id, User.login_type == 'kakao').first()
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
+
+# kakao 유저 등록
+async def kakao_set(db: Session, post_data) -> User:
+    try:
+        # print(post_data)
+        # return True
+        # add_insert = []
+        # if "email" in post_data["kakao_account"]:
+        #     add_insert.append(email = post_data["kakao_account"]["email"])
+
+        db_obj = User(
+            sns_id=post_data["id"],
+            login_type="kakao",
+        )
+        db.add(db_obj)
+        db.commit()
+        db.refresh(db_obj)
+        return db_obj
+    except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail={"result": "fail", "message": "서버에 문제가 발생했습니다"})
