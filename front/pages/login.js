@@ -9,7 +9,12 @@ import { faAlignRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
-  const {register, handleSubmit, watch, formState: { errors },} = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -36,7 +41,7 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
-              register={{...register("email", { required: true })}}
+              register={{ ...register("email", { required: true }) }}
             ></Input>
             {errors.email && <span>This field is required</span>}
           </div>
@@ -48,7 +53,9 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
+              register={{ ...register("password", { required: true }) }}
             ></Input>
+            {errors.password && <span>This field is required</span>}
           </div>
           <div className="w-full">
             <Button type="submit">로그인</Button>
