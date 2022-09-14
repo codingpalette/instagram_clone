@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/base/Button";
 import Card from "../components/base/Card";
 import Input from "../components/base/Input";
@@ -15,9 +15,17 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  const [check, setCheck] = useState(false);
+
   const onSubmit = (data) => {
     console.log(data);
+    if (data.email === "" || data.password === "") {
+      return;
+    }
+    console.log("no");
   };
+
   return (
     <div className="max-w-4xl m-auto min-h-screen flex justify-center items-center">
       <div className=" pr-8  pb-3 w-6/12r">
@@ -41,9 +49,9 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
-              register={{ ...register("email", { required: true }) }}
+              register={{ ...register("email") }}
             ></Input>
-            {errors.email && <span>This field is required</span>}
+            {/* {errors.email && <span>This field is required</span>} */}
           </div>
           <div className="w-full mb-2">
             <Input
@@ -53,9 +61,9 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
-              register={{ ...register("password", { required: true }) }}
+              register={{ ...register("password") }}
             ></Input>
-            {errors.password && <span>This field is required</span>}
+            {/* {errors.password && <span>This field is required</span>} */}
           </div>
           <div className="w-full">
             <Button type="submit">로그인</Button>
@@ -80,6 +88,11 @@ const Login = () => {
               className="grow h-px"
             ></div>
           </div>
+          {check && (
+            <>
+              <div>경고창!!!!</div>
+            </>
+          )}
           <div className="text-sm w-full font-semibold text-center">
             <button style={{ color: "#000000d9" }}>카카오톡으로 로그인</button>
           </div>

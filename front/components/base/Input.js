@@ -8,7 +8,7 @@ const Input = ({
   style,
   defaultValue,
   id,
-  register
+  register,
 }) => {
   return (
     <>
