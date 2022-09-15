@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../components/base/Button";
 import Card from "../components/base/Card";
 import Input from "../components/base/Input";
@@ -17,13 +17,17 @@ const Login = () => {
   } = useForm();
 
   const [check, setCheck] = useState(false);
-  const [emailCheck, setEmailCheck] = useState(false)
-  const [passwordCheck, setPasswordCheck] = useState(false)
-  const [ButtonDisabled, setButtonDisabled] = useState(true)
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [passwordCheck, setPasswordCheck] = useState(false);
+  const [ButtonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {
-    console.log(emailCheck)
-  }, [emailCheck])
+    console.log(emailCheck);
+    console.log(passwordCheck);
+    if (emailCheck && passwordCheck) {
+      setButtonDisabled(false);
+    }
+  }, [emailCheck, passwordCheck]);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -56,9 +60,13 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
-              register={{ ...register("email", {
-                onChange: (e) => {setEmailCheck(e.target.value !== '')}
-                })}}
+              register={{
+                ...register("email", {
+                  onChange: (e) => {
+                    setEmailCheck(e.target.value !== "");
+                  },
+                }),
+              }}
             ></Input>
             {/* {errors.email && <span>This field is required</span>} */}
           </div>
@@ -70,12 +78,20 @@ const Login = () => {
                 padding: "9px 8px 7px",
                 background: "rgba(var(--b3f,250,250,250),1)",
               }}
-              register={{ ...register("password") }}
+              register={{
+                ...register("password", {
+                  onChange: (e) => {
+                    setPasswordCheck(e.target.value !== "");
+                  },
+                }),
+              }}
             ></Input>
             {/* {errors.password && <span>This field is required</span>} */}
           </div>
           <div className="w-full">
-            <Button type="submit" disabled={ButtonDisabled}>로그인</Button>
+            <Button type="submit" disabled={ButtonDisabled}>
+              로그인
+            </Button>
           </div>
           <div className="w-full flex items-center mt-2.5 mb-5 justify-between">
             <div
